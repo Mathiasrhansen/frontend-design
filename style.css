@@ -6,19 +6,27 @@
     }
 }
 
+.card:not(:has(img)) h3 {
+    font-size: 1.6rem;
+}
 
+.card:not(:has(img)):not(:has(h3)){
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
 
+.card:has(img) {
+    padding: 0;
 
+    & img {
+        width: 100%;
+        display: block;
+    }
 
-
-
-
-
-
-
-
-
-
+    & div {
+        padding: 1rem;
+    }
+}
 
 @layer reset, cards;
 
@@ -27,7 +35,6 @@
         list-style: none;
         padding: 0;
         max-inline-size: 60ch;
-
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
