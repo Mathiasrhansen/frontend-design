@@ -1,6 +1,13 @@
 .bento {
     display: grid;
     gap: var(--spacing-base);
+    grid-template-areas: 
+        "card-one"
+        "card-two"
+        "card-three"
+        "card-four"
+        "card-five"
+    ; 
 
     .title {
         --bg: var(--color-brand-yellow);
@@ -19,7 +26,48 @@
         font-size: 2rem;
         line-height: 1.2;
     }
+
+    @media (width > 760px) {
+        gap: var(--spacing-base);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+            "card-one card-one"
+            "card-two card-three"
+            "card-four card-five"
+        ;
+    } 
+
+    @media (width > 1000px) {
+        gap: var(--spacing-large);
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+            "card-one card-one card-two"
+            "card-three card-four card-two"
+            "card-three card-four card-five"
+        ;
+    } 
+
+    :nth-child(1) {
+        grid-area: card-one;
+    }
+
+    :nth-child(2) {
+        grid-area: card-two;
+    }
+
+    :nth-child(3) {
+        grid-area: card-three;
+    }
+
+    :nth-child(4) {
+        grid-area: card-four;
+    }
+
+    :nth-child(5) {
+        grid-area: card-five;
+    }
 }
+
 
 .card {
     border-radius: var(--border-radius);
